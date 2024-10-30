@@ -1,0 +1,47 @@
+﻿<Window x:Class="ARM_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM_App" xmlns:viewmodel="clr-namespace:ARM_App.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="700"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Верхнее меню -->
+        <Menu VerticalAlignment="Top" Height="30" Grid.ColumnSpan="2">
+            <MenuItem Header="Отчётность" />
+            <MenuItem Header="Справка"/>
+            <MenuItem Header="О приложении"/>
+            <MenuItem Header="Статистика"/>
+        </Menu>
+
+
+        <!-- Основная структура интерфейса -->
+            <!-- Левая панель с меню -->
+        <StackPanel Grid.Column="0" Width="200" Background="DarkGray" HorizontalAlignment="Center" MinWidth="150" MinHeight="250" Height="344">
+            <TextBlock Text="Меню:" TextAlignment="Center" FontSize="16" Margin="0 0 0 2" FontWeight="Bold"/>
+            <Button Content="Товары" Command="{Binding OpenProductsCommand}" CommandParameter="Products" Height="40" BorderBrush="CornflowerBlue"/>
+            <Button Content="Расходы" Height="40" BorderBrush="CornflowerBlue"/>
+            <Button Content="Производство" Height="40" BorderBrush="CornflowerBlue"/>
+            <Button Content="Приходы" Height="40" BorderBrush="CornflowerBlue"/>
+            <Button Content="Поставки" Height="40" BorderBrush="CornflowerBlue"/>
+            <Button Content="Бюджет" Height="40" BorderBrush="CornflowerBlue"/>
+            <Button Content="Сырье" Command="{Binding OpenRawMaterialsCommand}" CommandParameter="RawMaterials" Height="40" BorderBrush="CornflowerBlue"/>
+            <Button Content="Продажи" Height="40" BorderBrush="CornflowerBlue"/>
+        </StackPanel>
+
+        <Separator Background="LightGray" Width="404" Margin="293 28 0 0">
+            <Separator.LayoutTransform>
+                <RotateTransform Angle="90"/>
+            </Separator.LayoutTransform>
+        </Separator>
+        <!-- Правая область с содержимым (здесь будут отображаться страницы) -->
+        <Frame x:Name="MainFrame" Background="WhiteSmoke" Width="700" Height="403" Margin="-4.5 29.5 0 0" VerticalAlignment="Top" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
