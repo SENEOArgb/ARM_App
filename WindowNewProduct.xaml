@@ -1,0 +1,62 @@
+﻿<Window x:Class="ARM_App.WindowNew.WindowNewProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM_App.WindowNew" xmlns:viewmodel="clr-namespace:ARM_App.ViewModel" xmlns:model="clr-namespace:ARM_App.Model" d:DataContext="{d:DesignInstance Type=model:Product}"
+        mc:Ignorable="d"
+        Title="WindowNewProduct" Height="350" Width="400" Background="LightGray">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID:" HorizontalAlignment="Right" 
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Название товара:" HorizontalAlignment="Right" 
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Категория товара" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Стоимость товара" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Годен до:" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Количество товара:" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="TbId" Grid.Row="0" Grid.Column="1" Height="20" Width="50" HorizontalAlignment="Left" 
+             VerticalAlignment="Center" Margin="5" Text="{Binding productId}" IsEnabled="False"/>
+        <TextBox x:Name="TbName" Grid.Row="1" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left" 
+             VerticalAlignment="Center" Margin="5" Text="{Binding ProductName}"/>
+        <TextBox x:Name="TbCategory" Grid.Row="2" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left"
+             VerticalAlignment="Center" Margin="5" Text="{Binding ProductCategory}"/>
+        <TextBox x:Name="TbSalary" Grid.Row="3" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left"
+             VerticalAlignment="Center" Margin="5" Text="{Binding ProductSalary}" MaxLength="4"/>
+        <TextBox x:Name="ExpDate" IsVisibleChanged="ExpDate_IsVisibleChanged"
+                 Grid.Row="4" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left"
+                 VerticalAlignment="Center" Margin="5" Text="{Binding ExpirationDate}"/>
+        <DatePicker x:Name="DpExpDate" Visibility="Hidden"
+                    Grid.Row="4" Grid.Column="1" SelectedDate="{Binding ExpirationDate, Mode=OneWay,  UpdateSourceTrigger=PropertyChanged}" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,8,6,7" Width="150" SelectedDateFormat="Short"/>
+
+        <TextBox x:Name="TbCount" Grid.Row="5" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left"
+             VerticalAlignment="Center" Margin="5" Text="{Binding CountProduct}" MaxLength="6"/>
+        
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BtSave" Width="70" Content="Сохранить" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="5,10,10,5" IsDefault="True"  BorderBrush="Black" BorderThickness="1"
+                    Foreground="White" Background="DarkGreen" Click="BtSave_Click"/>
+            <Button x:Name="BtCansel" Width="70" Content="Отменить" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                    Margin="5,10,10,5" Foreground="White" Background="Red" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

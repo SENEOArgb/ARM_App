@@ -1,0 +1,47 @@
+﻿<Window x:Class="ARM_App.WindowNew.WindowNewRawMaterial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM_App.WindowNew" xmlns:model="clr-namespace:ARM_App.Model" d:DataContext="{d:DesignInstance Type=model:RawMaterial}"
+        mc:Ignorable="d"
+        Title="WindowNewRawMaterial" Height="350" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID:" HorizontalAlignment="Right" 
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Наименование сырья:" HorizontalAlignment="Right" 
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Тип сырья:" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Количество сырья:" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="TbId" Grid.Row="0" Grid.Column="1" Height="20" Width="50" HorizontalAlignment="Left" 
+             VerticalAlignment="Center" Margin="5" Text="{Binding rawMaterialId}" IsEnabled="False"/>
+        <TextBox x:Name="TbName" Grid.Row="1" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left" 
+             VerticalAlignment="Center" Margin="5" Text="{Binding NameRawMaterial}"/>
+        <TextBox x:Name="TbCategory" Grid.Row="2" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left"
+             VerticalAlignment="Center" Margin="5" Text="{Binding TypeRawMaterial}"/>
+        <TextBox x:Name="TbSalary" Grid.Row="3" Grid.Column="1" Height="20" Width="130" HorizontalAlignment="Left"
+             VerticalAlignment="Center" Margin="5" Text="{Binding CountRawMaterial}" MaxLength="4"/>
+
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BtSave" Width="70" Content="Сохранить" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="5,10,10,5" IsDefault="True"  BorderBrush="Black" BorderThickness="1"
+                    Foreground="White" Background="DarkGreen" Click="BtSave_Click"/>
+            <Button x:Name="BtCansel" Width="70" Content="Отменить" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                    Margin="5,10,10,5" Foreground="White" Background="Red" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
